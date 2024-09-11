@@ -62,8 +62,8 @@ This project is built with Next.js, TypeScript, and Tailwind CSS. It features a 
 To get started with the project, clone the repository and install the dependencies:
 
 ```bash
-git clone <repository-url>
-cd <project-directory>
+git clone git@github.com:akhtarnasim1990/recurringdateapp.git
+cd recurringdateapp
 npm install
 ```
 
