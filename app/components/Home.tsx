@@ -47,6 +47,12 @@ const Home: React.FC = () => {
     <div className="flex flex-col items-center gap-5 mt-12">
       <button
         className="px-5 py-2 rounded-full bg-blue-500 text-white cursor-pointer transition duration-300 ease-in-out text-lg shadow-md hover:bg-blue-700 hover:shadow-lg hover:translate-y-[-2px]"
+        onClick={handleToggleDatePickerModalButton}
+      >
+        Select Date
+      </button>
+      <button
+        className="px-5 py-2 rounded-full bg-blue-500 text-white cursor-pointer transition duration-300 ease-in-out text-lg shadow-md hover:bg-blue-700 hover:shadow-lg hover:translate-y-[-2px]"
         onClick={handleTogglePreviewModalButton}
       >
         Preview Date
