@@ -7,6 +7,16 @@
   --foreground: #171717;
 }
 
+.react-calendar__tile--active {
+  background: lightblue !important;
+  color: white;
+}
+
+.selected {
+  background-color: #007bff !important;
+  color: white !important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
