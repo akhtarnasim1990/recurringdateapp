@@ -4,6 +4,20 @@
 
 This project is built with Next.js, TypeScript, and Tailwind CSS. It features a set of components designed to handle recurrence options, date selection, and a preview. The application leverages the Context API for state management and includes comprehensive unit and integration tests to ensure reliability.
 
+## Table of Contents
+
+- [Project README](#project-readme)
+  - [Overview](#overview)
+  - [Table of Contents](#table-of-contents)
+  - [Components](#components)
+  - [Technology Stack](#technology-stack)
+  - [Installation](#installation)
+  - [Scripts](#scripts)
+  - [Dependencies](#dependencies)
+    - [Runtime Dependencies](#runtime-dependencies)
+    - [Development Dependencies](#development-dependencies)
+  - [Future Improvements](#future-improvements)
+
 ## Components
 
 - **Recurrence Options**: Allows users to select from various recurrence patterns such as Daily, Weekly, Monthly, and Yearly. It also supports customization options like specifying intervals (e.g., Every X days/weeks/months/years), selecting specific days of the week, and choosing the nth day of the month (e.g., the second Tuesday).
