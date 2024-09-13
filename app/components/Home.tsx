@@ -67,7 +67,11 @@ const Home: React.FC = () => {
 
       {/* Date Picker Modal */}
       {showDatePickerModal && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50" onClick={handleToggleDatePickerModal}>
+        <div
+          className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50"
+          onClick={handleToggleDatePickerModal}
+          data-testid="select-date-modal-overlay"
+        >
           <div className="bg-white p-5 rounded-lg text-center min-w-[300px]" onClick={(e) => e.stopPropagation()}>
             <h3>Select a Date</h3>
             <DatePicker dateValue={startDate} setDateValue={setStartDate} />
@@ -83,7 +87,11 @@ const Home: React.FC = () => {
 
       {/* Date Preview Modal */}
       {showPreviewModal && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50" onClick={handleTogglePreviewModal}>
+        <div
+          className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50"
+          onClick={handleTogglePreviewModal}
+          data-testid="date-preview-modal-overlay"
+        >
           <DatePreview selectedDates={selectedDates} />
         </div>
       )}

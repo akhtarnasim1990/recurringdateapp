@@ -216,7 +216,11 @@ const MyModal: React.FC<MyModalProps> = ({ onClose }) => {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50 overflow-y-auto" onClick={onClose}>
+    <div
+      className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50 overflow-y-auto"
+      onClick={onClose}
+      data-testid="modal-overlay"
+    >
       <div className="bg-white rounded-lg p-6 w-96 shadow-lg relative text-center" onClick={(e) => e.stopPropagation()}>
         <h2 className="text-xl font-semibold mb-4">Recurring Date Selector</h2>
         <div className="mb-4">
@@ -225,8 +229,10 @@ const MyModal: React.FC<MyModalProps> = ({ onClose }) => {
             <DatePicker dateValue={startDate} setDateValue={setStartDate} />
           </div>
           <div className="mb-4 text-left">
-            <label className="block font-bold mb-1">Number:</label>
-            <select className="w-full p-2 border rounded-md" value={number} onChange={(e) => setNumber(e.target.value)}>
+            <label className="block font-bold mb-1" htmlFor="number">
+              Number:
+            </label>
+            <select id="number" className="w-full p-2 border rounded-md" value={number} onChange={(e) => setNumber(e.target.value)}>
               {Array.from({ length: 99 }, (_, i) => (
                 <option key={i + 1} value={i + 1}>
                   {i + 1}
