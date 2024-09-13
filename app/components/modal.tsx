@@ -95,16 +95,20 @@ const MyModal: React.FC<MyModalProps> = ({ onClose }) => {
       return newDate;
     };
 
-    const addMonths = (date: Date, months: number): Date => {
+    const addMonths = (date: Date, months: number, monthDay: number): Date => {
       const newDate = new Date(date);
       const dayOfMonth = newDate.getDate();
       const targetMonth = newDate.getMonth() + months;
       newDate.setMonth(targetMonth);
-
+      // newDate.setDate(monthDay);
+      console.log("beore------", newDate);
       // Adjust for the last day of the target month
       if (newDate.getDate() !== dayOfMonth) {
         newDate.setDate(0); // Set to the last day of the previous month
+      } else if (monthDay > newDate.getDate()) {
+        newDate.setDate(monthDay);
       }
+      console.log("after - - - - - -", newDate);
       return newDate;
     };
 
@@ -156,13 +160,14 @@ const MyModal: React.FC<MyModalProps> = ({ onClose }) => {
 
         case "months":
           if (!isNtheWeek) {
-            if (currentDate.getDate() === monthDay) {
-              dates.push(new Date(currentDate));
-            }
-            currentDate = addMonths(currentDate, interval);
+            // if (currentDate.getDate() === monthDay) {
+
+            // }
+            dates.push(new Date(currentDate));
+            currentDate = addMonths(currentDate, interval, monthDay);
           } else {
             dates.push(new Date(nthDate));
-            currentDate = addMonths(currentDate, interval);
+            currentDate = addMonths(currentDate, interval, monthDay);
             nthDate = getNthWeekdayOfMonth(currentDate.getFullYear(), currentDate.getMonth(), nthWeekday.nth, nthWeekday.weekday);
           }
           break;
@@ -268,7 +273,7 @@ const MyModal: React.FC<MyModalProps> = ({ onClose }) => {
             </div>
           )}
           {(period === "months" || period === "years") && (
-            <div className="mb-4 text-left">
+            <div className="mb-4 text-left flex flex-col">
               <label>
                 <input type="radio" checked={!isNtheWeek} onChange={() => setIsNtheWeek(false)} />
                 On the day {startDate.getDate()}
